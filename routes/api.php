@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiControllers\ChatController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiControllers\UsersController;
@@ -43,5 +44,10 @@ Route::group(['middleware'=>'auth:api'],function(){
     Route::post('EditNursePost',[NurseController::class,'EditNursePost']);
     Route::post('DeleteNursePost',[NurseController::class,'DeleteNursePost']);
     Route::post('GetAllNursePost',[NurseController::class,'GetAllNursePost']);
+
+
+    //Chats
+    Route::get('getAllConversations', [ChatController::class,'getAllConversations']);
+    Route::post('getConversation', [ChatController::class,'getConversation']);
 });
 
